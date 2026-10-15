@@ -34,7 +34,11 @@ export function useHashSelection(): [Selection | null, (next: Selection | null) 
     setSelection(next);
     const hash = selectionToHash(next);
     const url = `${window.location.pathname}${window.location.search}${hash}`;
-    window.history.replaceState(null, '', url);
+    try {
+      window.history.replaceState(null, '', url);
+    } catch {
+      // Sandboxed frames can refuse history changes; selection still works without the URL.
+    }
   }, []);
 
   return [selection, update];
