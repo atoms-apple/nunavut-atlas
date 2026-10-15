@@ -1,0 +1,152 @@
+import type { LayerDefinition } from '../../types/layer';
+
+/**
+ * Layer registry. A layer may only be marked `available` when a validated
+ * dataset is bundled for it. Everything else stays `planned` and is shown
+ * as "Data not yet available"; nothing is drawn for planned layers.
+ */
+export const LAYERS: LayerDefinition[] = [
+  {
+    id: 'communities',
+    name: 'Communities',
+    description: 'Nunavut’s 25 municipalities, at sourced coordinates. Marker shape and label show the region.',
+    status: 'available',
+    storage: 'bundled',
+    classification: 'official',
+    sourceIds: ['nrcan-cgndb', 'geonames-cities500', 'gov-nunavut-communities', 'statcan-2021-fogs'],
+    defaultVisible: true,
+    legend: { symbol: 'community', label: 'Community (shape = region)' },
+  },
+  {
+    id: 'nunavut-outline',
+    name: 'Territorial outline',
+    description: 'Generalized outline of Nunavut’s land area at 1:10 million scale. Not a legal boundary.',
+    status: 'available',
+    storage: 'static-file',
+    classification: 'derived',
+    sourceIds: ['natural-earth-admin1'],
+    defaultVisible: true,
+    dataPath: 'data/nunavut-boundary.geojson',
+    legend: { symbol: 'outline', label: 'Nunavut outline (generalized)' },
+  },
+  {
+    id: 'physical-features',
+    name: 'Islands, peninsulas and waters',
+    description: 'Names of major islands, peninsulas and marine areas, placed at approximate label positions.',
+    status: 'available',
+    storage: 'static-file',
+    classification: 'derived',
+    sourceIds: ['natural-earth-physical'],
+    defaultVisible: true,
+    dataPath: 'data/physical-features.geojson',
+    legend: { symbol: 'label-point', label: 'Named feature (label position only)' },
+  },
+  {
+    id: 'region-boundaries',
+    name: 'Region boundaries',
+    description: 'Qikiqtaaluk, Kivalliq and Kitikmeot boundaries.',
+    status: 'planned',
+    storage: 'static-file',
+    classification: 'incomplete',
+    sourceIds: [],
+    defaultVisible: false,
+    plannedNote:
+      'Verified boundary files (e.g. Statistics Canada census division boundaries) could not be obtained for this release. Regions are shown as community groupings instead.',
+  },
+  {
+    id: 'airports',
+    name: 'Airports and aerodromes',
+    description: 'Community airports and aerodromes.',
+    status: 'planned',
+    storage: 'static-file',
+    classification: 'incomplete',
+    sourceIds: [],
+    defaultVisible: false,
+    plannedNote: 'Needs an authoritative aerodrome dataset (e.g. from NAV CANADA or Transport Canada) with clear redistribution terms.',
+  },
+  {
+    id: 'waterways',
+    name: 'Major rivers and lakes',
+    description: 'Major waterways at an overview scale.',
+    status: 'planned',
+    storage: 'static-file',
+    classification: 'incomplete',
+    sourceIds: [],
+    defaultVisible: false,
+    plannedNote: 'Candidate sources: NRCan CanVec or the Canadian National Hydro Network, generalized for overview use.',
+  },
+  {
+    id: 'protected-areas',
+    name: 'Parks and protected areas',
+    description: 'National and territorial parks, and other protected and conserved areas.',
+    status: 'planned',
+    storage: 'static-file',
+    classification: 'incomplete',
+    sourceIds: [],
+    defaultVisible: false,
+    plannedNote: 'Candidate source: the Canadian Protected and Conserved Areas Database (CPCAD).',
+  },
+  {
+    id: 'weather-stations',
+    name: 'Weather stations',
+    description: 'Climate and weather observing stations.',
+    status: 'planned',
+    storage: 'static-file',
+    classification: 'incomplete',
+    sourceIds: [],
+    defaultVisible: false,
+    plannedNote: 'Candidate source: Environment and Climate Change Canada station inventory.',
+  },
+  {
+    id: 'research-stations',
+    name: 'Research stations',
+    description: 'Research and monitoring facilities.',
+    status: 'planned',
+    storage: 'static-file',
+    classification: 'incomplete',
+    sourceIds: [],
+    defaultVisible: false,
+    plannedNote: 'Needs a maintained, openly licensed inventory.',
+  },
+  {
+    id: 'telecom',
+    name: 'Telecommunications infrastructure',
+    description: 'Public information on connectivity infrastructure.',
+    status: 'planned',
+    storage: 'static-file',
+    classification: 'incomplete',
+    sourceIds: [],
+    defaultVisible: false,
+    plannedNote: 'Candidate source: CRTC / ISED published broadband data, subject to licence review.',
+  },
+  {
+    id: 'permafrost',
+    name: 'Permafrost reference',
+    description: 'Permafrost zones at an overview scale.',
+    status: 'planned',
+    storage: 'static-file',
+    classification: 'incomplete',
+    sourceIds: [],
+    defaultVisible: false,
+    plannedNote: 'Candidate source: NRCan permafrost map of Canada.',
+  },
+  {
+    id: 'sea-ice',
+    name: 'Sea ice reference',
+    description: 'Sea ice climatology or recent extent.',
+    status: 'planned',
+    storage: 'online',
+    classification: 'incomplete',
+    sourceIds: [],
+    defaultVisible: false,
+    plannedNote: 'Candidate sources: Canadian Ice Service or NSIDC products, subject to licence review.',
+  },
+];
+
+export function getLayer(id: string): LayerDefinition | undefined {
+  return LAYERS.find((l) => l.id === id);
+}
+
+export const DEFAULT_LAYER_VISIBILITY: Record<string, boolean> = Object.fromEntries(
+  LAYERS.filter((l) => l.status === 'available').map((l) => [l.id, l.defaultVisible]),
+);

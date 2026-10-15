@@ -1,0 +1,785 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "id": "ne-amundsen-gulf",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -120.189,
+     70.528
+    ]
+   },
+   "properties": {
+    "name": "Amundsen Gulf",
+    "category": "gulf",
+    "realm": "marine",
+    "sourceName": "Amundsen Gulf",
+    "wikidata": "Q1974744",
+    "labelRank": 4,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-axel-heiberg-island",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.472,
+     79.608
+    ]
+   },
+   "properties": {
+    "name": "Axel Heiberg Island",
+    "category": "island",
+    "realm": "land",
+    "sourceName": "Axel Heiberg I.",
+    "wikidata": "Q207666",
+    "labelRank": 5,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-baffin-bay",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -67.639,
+     73.367
+    ]
+   },
+   "properties": {
+    "name": "Baffin Bay",
+    "category": "bay",
+    "realm": "marine",
+    "sourceName": "Baffin Bay",
+    "wikidata": "Q37040",
+    "labelRank": 1,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-baffin-island",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -70.819,
+     65.643
+    ]
+   },
+   "properties": {
+    "name": "Baffin Island",
+    "category": "island",
+    "realm": "land",
+    "sourceName": "BAFFIN ISLAND",
+    "wikidata": "Q81178",
+    "labelRank": 3,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-banks-island",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -121.339,
+     73.056
+    ]
+   },
+   "properties": {
+    "name": "Banks Island",
+    "category": "island",
+    "realm": "land",
+    "sourceName": "BANKS ISLAND",
+    "wikidata": "Q200226",
+    "labelRank": 4,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-bathurst-inlet",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.742,
+     67.151
+    ]
+   },
+   "properties": {
+    "name": "Bathurst Inlet",
+    "category": "bay",
+    "realm": "marine",
+    "sourceName": "Bathurst Inlet",
+    "wikidata": "Q810805",
+    "labelRank": 8,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-bathurst-island",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -98.631,
+     75.918
+    ]
+   },
+   "properties": {
+    "name": "Bathurst Island",
+    "category": "island",
+    "realm": "land",
+    "sourceName": "Bathurst I.",
+    "wikidata": "Q217369",
+    "labelRank": 7,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-belcher-islands",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -79.48,
+     56.264
+    ]
+   },
+   "properties": {
+    "name": "Belcher Islands",
+    "category": "island-group",
+    "realm": "land",
+    "sourceName": "Belcher Islands",
+    "wikidata": "Q545780",
+    "labelRank": 5,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-boothia-peninsula",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -94.401,
+     70.621
+    ]
+   },
+   "properties": {
+    "name": "Boothia Peninsula",
+    "category": "peninsula",
+    "realm": "land",
+    "sourceName": "Boothia Peninsula",
+    "wikidata": "Q893152",
+    "labelRank": 5,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-bylot-island",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -78.661,
+     73.245
+    ]
+   },
+   "properties": {
+    "name": "Bylot Island",
+    "category": "island",
+    "realm": "land",
+    "sourceName": "Bylot Island",
+    "wikidata": "Q645180",
+    "labelRank": 7,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-coats-island",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -82.977,
+     62.571
+    ]
+   },
+   "properties": {
+    "name": "Coats Island",
+    "category": "island",
+    "realm": "land",
+    "sourceName": "Coats I.",
+    "wikidata": "Q338670",
+    "labelRank": 7,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-cornwallis-island",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -94.842,
+     75.119
+    ]
+   },
+   "properties": {
+    "name": "Cornwallis Island",
+    "category": "island",
+    "realm": "land",
+    "sourceName": "Cornwallis I.",
+    "wikidata": "Q674504",
+    "labelRank": 7,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-cumberland-peninsula",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -65.18,
+     66.817
+    ]
+   },
+   "properties": {
+    "name": "Cumberland Peninsula",
+    "category": "peninsula",
+    "realm": "land",
+    "sourceName": "Cumberland Peninsula",
+    "wikidata": "Q3815319",
+    "labelRank": 4,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-cumberland-sound",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -66.017,
+     65.455
+    ]
+   },
+   "properties": {
+    "name": "Cumberland Sound",
+    "category": "sound",
+    "realm": "marine",
+    "sourceName": "Cumberland Sound",
+    "wikidata": "Q938327",
+    "labelRank": 5,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-davis-strait",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -57.95,
+     64.738
+    ]
+   },
+   "properties": {
+    "name": "Davis Strait",
+    "category": "strait",
+    "realm": "marine",
+    "sourceName": "Davis Strait",
+    "wikidata": "Q189262",
+    "labelRank": 2,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-devon-island",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.237,
+     75.274
+    ]
+   },
+   "properties": {
+    "name": "Devon Island",
+    "category": "island",
+    "realm": "land",
+    "sourceName": "Devon Island",
+    "wikidata": "Q186841",
+    "labelRank": 5,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-eclipse-sound",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -79.015,
+     72.544
+    ]
+   },
+   "properties": {
+    "name": "Eclipse Sound",
+    "category": "sound",
+    "realm": "marine",
+    "sourceName": "Eclipse Sound",
+    "wikidata": "Q5333028",
+    "labelRank": 7,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-ellesmere-island",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -75.444,
+     81.031
+    ]
+   },
+   "properties": {
+    "name": "Ellesmere Island",
+    "category": "island",
+    "realm": "land",
+    "sourceName": "ELLESMERE  ISLAND",
+    "wikidata": "Q146841",
+    "labelRank": 3,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-foxe-basin",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -79.193,
+     66.383
+    ]
+   },
+   "properties": {
+    "name": "Foxe Basin",
+    "category": "bay",
+    "realm": "marine",
+    "sourceName": "Foxe Basin",
+    "wikidata": "Q845217",
+    "labelRank": 5,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-foxe-peninsula",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.777,
+     64.82
+    ]
+   },
+   "properties": {
+    "name": "Foxe Peninsula",
+    "category": "peninsula",
+    "realm": "land",
+    "sourceName": "Foxe Pen.",
+    "wikidata": "Q1440216",
+    "labelRank": 5,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-frobisher-bay",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -66.191,
+     62.661
+    ]
+   },
+   "properties": {
+    "name": "Frobisher Bay",
+    "category": "bay",
+    "realm": "marine",
+    "sourceName": "Frobisher Bay",
+    "wikidata": "Q1004067",
+    "labelRank": 5,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-fury-and-hecla-strait",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -83.361,
+     69.841
+    ]
+   },
+   "properties": {
+    "name": "Fury and Hecla Strait",
+    "category": "strait",
+    "realm": "marine",
+    "sourceName": "Fury and Hecla Strait",
+    "wikidata": "Q691945",
+    "labelRank": 7,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-gulf-of-boothia",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -87.319,
+     69.212
+    ]
+   },
+   "properties": {
+    "name": "Gulf of Boothia",
+    "category": "gulf",
+    "realm": "marine",
+    "sourceName": "Gulf of Boothia",
+    "wikidata": "Q919520",
+    "labelRank": 5,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-hudson-bay",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -85.333,
+     59.344
+    ]
+   },
+   "properties": {
+    "name": "Hudson Bay",
+    "category": "bay",
+    "realm": "marine",
+    "sourceName": "Hudson Bay",
+    "wikidata": "Q3040",
+    "labelRank": 1,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-hudson-strait",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -75.19,
+     63.5
+    ]
+   },
+   "properties": {
+    "name": "Hudson Strait",
+    "category": "strait",
+    "realm": "marine",
+    "sourceName": "Hudson Strait",
+    "wikidata": "Q207702",
+    "labelRank": 3,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-jones-sound",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -86.176,
+     75.964
+    ]
+   },
+   "properties": {
+    "name": "Jones Sound",
+    "category": "sound",
+    "realm": "marine",
+    "sourceName": "Jones Sound",
+    "wikidata": "Q1703405",
+    "labelRank": 6,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-kane-basin",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -69.884,
+     79.56
+    ]
+   },
+   "properties": {
+    "name": "Kane Basin",
+    "category": "bay",
+    "realm": "marine",
+    "sourceName": "Kane Basin",
+    "wikidata": "Q1510928",
+    "labelRank": 5,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-king-william-island",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -97.418,
+     69.088
+    ]
+   },
+   "properties": {
+    "name": "King William Island",
+    "category": "island",
+    "realm": "land",
+    "sourceName": "King William I.",
+    "wikidata": "Q143246",
+    "labelRank": 7,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-mansel-island",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -79.806,
+     62.037
+    ]
+   },
+   "properties": {
+    "name": "Mansel Island",
+    "category": "island",
+    "realm": "land",
+    "sourceName": "Mansel I.",
+    "wikidata": "Q1322393",
+    "labelRank": 7,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-melville-island",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -112.8,
+     75.672
+    ]
+   },
+   "properties": {
+    "name": "Melville Island",
+    "category": "island",
+    "realm": "land",
+    "sourceName": "Melville Island",
+    "wikidata": "Q134116",
+    "labelRank": 5,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-melville-peninsula",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -83.982,
+     68.012
+    ]
+   },
+   "properties": {
+    "name": "Melville Peninsula",
+    "category": "peninsula",
+    "realm": "land",
+    "sourceName": "Melville Peninsula",
+    "wikidata": "Q1352266",
+    "labelRank": 4,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-meta-incognita-peninsula",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -68.472,
+     62.771
+    ]
+   },
+   "properties": {
+    "name": "Meta Incognita Peninsula",
+    "category": "peninsula",
+    "realm": "land",
+    "sourceName": "Meta Incognita Pen.",
+    "wikidata": "Q3307186",
+    "labelRank": 5,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-prince-charles-island",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -76.148,
+     67.779
+    ]
+   },
+   "properties": {
+    "name": "Prince Charles Island",
+    "category": "island",
+    "realm": "land",
+    "sourceName": "Prince Charles I.",
+    "wikidata": "Q837267",
+    "labelRank": 6,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-prince-of-wales-island",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -99.176,
+     72.612
+    ]
+   },
+   "properties": {
+    "name": "Prince of Wales Island",
+    "category": "island",
+    "realm": "land",
+    "sourceName": "Prince of Wales I.",
+    "wikidata": "Q207925",
+    "labelRank": 5,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-somerset-island",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -93.505,
+     73.416
+    ]
+   },
+   "properties": {
+    "name": "Somerset Island",
+    "category": "island",
+    "realm": "land",
+    "sourceName": "Somerset I.",
+    "wikidata": "Q212219",
+    "labelRank": 7,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-southampton-island",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -84.435,
+     64.439
+    ]
+   },
+   "properties": {
+    "name": "Southampton Island",
+    "category": "island",
+    "realm": "land",
+    "sourceName": "Southampton I.",
+    "wikidata": "Q207751",
+    "labelRank": 5,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-victoria-island",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -110.025,
+     70.938
+    ]
+   },
+   "properties": {
+    "name": "Victoria Island",
+    "category": "island",
+    "realm": "land",
+    "sourceName": "VICTORIA ISLAND",
+    "wikidata": "Q158129",
+    "labelRank": 3,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-viscount-melville-sound",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.555,
+     73.887
+    ]
+   },
+   "properties": {
+    "name": "Viscount Melville Sound",
+    "category": "sound",
+    "realm": "marine",
+    "sourceName": "Viscount Melville Sound",
+    "wikidata": "Q5605258",
+    "labelRank": 4,
+    "sourceId": "natural-earth-physical"
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "ne-wager-bay",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.21,
+     65.613
+    ]
+   },
+   "properties": {
+    "name": "Wager Bay",
+    "category": "bay",
+    "realm": "marine",
+    "sourceName": "Wager Bay",
+    "wikidata": "Q2539134",
+    "labelRank": 8,
+    "sourceId": "natural-earth-physical"
+   }
+  }
+ ]
+}

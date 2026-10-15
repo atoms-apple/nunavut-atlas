@@ -1,0 +1,72 @@
+/*
+ * Design tokens. Colours were chosen for WCAG AA contrast against the
+ * surfaces they are used on (text tokens >= 4.5:1).
+ */
+:root {
+  /* Core palette */
+  --color-midnight: #0b1b2e;
+  --color-navy: #13304d;
+  --color-navy-2: #1d4268;
+  --color-ice: #cfe8f5;
+  --color-ice-strong: #7cc4e4;
+  --color-snow: #ffffff;
+  --color-frost: #f3f7fa;
+  --color-slate: #4b5c6b;
+  --color-graphite: #1f2a33;
+
+  /* Semantic */
+  --color-background: var(--color-frost);
+  --color-surface: var(--color-snow);
+  --color-surface-muted: #eef3f7;
+  --color-text: #15202b;
+  --color-muted: #50606f;
+  --color-border: #d3dde5;
+  --color-border-strong: #a9b8c4;
+  --color-primary: #1b5a8c;
+  --color-primary-hover: #134871;
+  --color-primary-contrast: #ffffff;
+  --color-accent: #2a7fb0;
+  --color-focus: #f2a900;
+  --color-danger: #a8261b;
+  --color-danger-bg: #fdecea;
+  --color-caution: #7a4f00;
+  --color-caution-bg: #fff4d6;
+  --color-official: #0e5a3b;
+  --color-official-bg: #e2f4ea;
+  --color-derived: #1b4f7a;
+  --color-derived-bg: #e3eef8;
+
+  --color-header: var(--color-midnight);
+  --color-header-text: #f2f7fb;
+  --color-header-muted: #a9c3d6;
+  --color-map-panel: #ffffff;
+
+  /* Map */
+  --map-ocean: #c9dbe6;
+  --map-land-fill: #f7f9fa;
+  --map-land-stroke: #8aa3b5;
+  --map-outline: #1b5a8c;
+
+  /* Type */
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Noto Sans Canadian Aboriginal', 'Euphemia UCAS',
+    'Helvetica Neue', Arial, sans-serif;
+  --text-xs: 0.78rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.2rem;
+  --text-xl: 1.45rem;
+
+  /* Space and shape */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --shadow-panel: 0 6px 24px rgba(11, 27, 46, 0.18), 0 1px 3px rgba(11, 27, 46, 0.12);
+  --header-height: 64px;
+  --panel-width: 400px;
+  --touch-target: 44px;
+}
