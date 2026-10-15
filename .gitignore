@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Caches (raw downloads used by scripts/build-geodata.mjs)
+.cache/
+
+# Test / tooling artifacts
+coverage/
+test-results/
+playwright-report/
+screenshots-tmp/
+
+# Editor / OS
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.log
+
+# Local environment files
+.env
+.env.*
+!.env.example

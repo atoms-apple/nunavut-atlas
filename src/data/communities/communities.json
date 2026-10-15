@@ -1,0 +1,1010 @@
+{
+  "version": 1,
+  "communities": [
+    {
+      "id": "arctic-bay",
+      "name": "Arctic Bay",
+      "regionId": "qikiqtaaluk",
+      "municipalStatus": "Hamlet",
+      "censusSubdivisionCode": "6204018",
+      "indigenousNames": [],
+      "formerNames": [],
+      "location": {
+        "lat": 73.03752,
+        "lon": -85.15057,
+        "sourceIds": [
+          "geonames-cities500",
+          "natural-earth-populated-places"
+        ],
+        "verification": "cross-checked",
+        "precision": "decimal",
+        "note": "GeoNames and Natural Earth agree within about 1 km."
+      },
+      "population": {
+        "count": 994,
+        "censusYear": 2021,
+        "sourceIds": [
+          "statcan-2021-fogs"
+        ],
+        "verification": "official-record"
+      },
+      "links": [
+        {
+          "label": "Government of Nunavut: Arctic Bay",
+          "url": "https://www.gov.nu.ca/en/communities/arctic-bay",
+          "sourceId": "gov-nunavut-communities"
+        }
+      ],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "arviat",
+      "name": "Arviat",
+      "regionId": "kivalliq",
+      "municipalStatus": "Hamlet",
+      "censusSubdivisionCode": "6205015",
+      "indigenousNames": [
+        {
+          "name": "ᐊᕐᕕᐊᑦ",
+          "language": "Inuktitut",
+          "script": "syllabics",
+          "sourceIds": [
+            "wikipedia-secondary"
+          ],
+          "verification": "single-source",
+          "note": "Secondary source; awaiting review by an Inuktut language authority."
+        }
+      ],
+      "formerNames": [],
+      "location": {
+        "lat": 61.10883,
+        "lon": -94.05848,
+        "sourceIds": [
+          "geonames-cities500",
+          "natural-earth-populated-places"
+        ],
+        "verification": "cross-checked",
+        "precision": "decimal"
+      },
+      "population": {
+        "count": 2864,
+        "censusYear": 2021,
+        "sourceIds": [
+          "statcan-2021-fogs"
+        ],
+        "verification": "official-record"
+      },
+      "links": [],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "baker-lake",
+      "name": "Baker Lake",
+      "regionId": "kivalliq",
+      "municipalStatus": "Hamlet",
+      "indigenousNames": [
+        {
+          "name": "Qamani'tuaq",
+          "language": "Inuktitut",
+          "script": "latin",
+          "sourceIds": [
+            "wikipedia-secondary"
+          ],
+          "verification": "single-source",
+          "note": "Secondary source; awaiting review by an Inuktut language authority."
+        },
+        {
+          "name": "ᖃᒪᓂᑦᑐᐊᖅ",
+          "language": "Inuktitut",
+          "script": "syllabics",
+          "sourceIds": [
+            "wikipedia-secondary"
+          ],
+          "verification": "single-source",
+          "note": "Secondary source; awaiting review by an Inuktut language authority."
+        }
+      ],
+      "formerNames": [],
+      "location": {
+        "lat": 64.319444,
+        "lon": -96.020833,
+        "sourceIds": [
+          "wikidata",
+          "natural-earth-populated-places"
+        ],
+        "verification": "cross-checked",
+        "precision": "seconds",
+        "note": "Wikidata value cites CGNDB record OABNP; the CGNDB record itself was not opened directly. Natural Earth agrees within about 1 km."
+      },
+      "population": null,
+      "links": [
+        {
+          "label": "Government of Nunavut: Baker Lake",
+          "url": "https://www.gov.nu.ca/en/communities/baker-lake",
+          "sourceId": "gov-nunavut-communities"
+        },
+        {
+          "label": "Canadian Geographical Names Database record",
+          "url": "https://geonames.nrcan.gc.ca/search-place-names/unique?id=OABNP",
+          "sourceId": "nrcan-cgndb"
+        }
+      ],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "cambridge-bay",
+      "name": "Cambridge Bay",
+      "regionId": "kitikmeot",
+      "municipalStatus": "Hamlet",
+      "censusSubdivisionCode": "6208073",
+      "indigenousNames": [
+        {
+          "name": "Iqaluktuuttiaq",
+          "language": "Inuinnaqtun",
+          "script": "latin",
+          "sourceIds": [
+            "wikipedia-secondary"
+          ],
+          "verification": "single-source",
+          "note": "Secondary source; awaiting review by an Inuktut language authority."
+        }
+      ],
+      "formerNames": [],
+      "location": {
+        "lat": 69.11489,
+        "lon": -105.05484,
+        "sourceIds": [
+          "geonames-cities500",
+          "natural-earth-populated-places"
+        ],
+        "verification": "cross-checked",
+        "precision": "decimal"
+      },
+      "population": {
+        "count": 1760,
+        "censusYear": 2021,
+        "sourceIds": [
+          "statcan-2021-fogs"
+        ],
+        "verification": "official-record"
+      },
+      "links": [],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "chesterfield-inlet",
+      "name": "Chesterfield Inlet",
+      "regionId": "kivalliq",
+      "municipalStatus": "Hamlet",
+      "censusSubdivisionCode": "6205019",
+      "indigenousNames": [],
+      "formerNames": [],
+      "location": {
+        "lat": 63.338889,
+        "lon": -90.701389,
+        "sourceIds": [
+          "nrcan-cgndb",
+          "natural-earth-populated-places"
+        ],
+        "verification": "official-record",
+        "precision": "seconds"
+      },
+      "population": {
+        "count": 397,
+        "censusYear": 2021,
+        "sourceIds": [
+          "statcan-2021-fogs"
+        ],
+        "verification": "official-record"
+      },
+      "description": {
+        "text": "The Government of Nunavut describes Chesterfield Inlet as approximately 101 km north of Rankin Inlet.",
+        "sourceIds": [
+          "gov-nunavut-communities"
+        ]
+      },
+      "links": [
+        {
+          "label": "Government of Nunavut: Chesterfield Inlet",
+          "url": "https://www.gov.nu.ca/en/communities/chesterfield-inlet",
+          "sourceId": "gov-nunavut-communities"
+        },
+        {
+          "label": "Canadian Geographical Names Database record",
+          "url": "https://geonames.nrcan.gc.ca/search-place-names/unique?id=OADJS",
+          "sourceId": "nrcan-cgndb"
+        }
+      ],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "clyde-river",
+      "name": "Clyde River",
+      "regionId": "qikiqtaaluk",
+      "municipalStatus": "Hamlet",
+      "censusSubdivisionCode": "6204015",
+      "indigenousNames": [],
+      "formerNames": [],
+      "location": {
+        "lat": 70.47233,
+        "lon": -68.58987,
+        "sourceIds": [
+          "geonames-cities500"
+        ],
+        "verification": "single-source",
+        "precision": "decimal",
+        "note": "Not present in Natural Earth; awaiting a CGNDB check."
+      },
+      "population": {
+        "count": 1181,
+        "censusYear": 2021,
+        "sourceIds": [
+          "statcan-2021-fogs"
+        ],
+        "verification": "official-record"
+      },
+      "links": [],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "coral-harbour",
+      "name": "Coral Harbour",
+      "regionId": "kivalliq",
+      "municipalStatus": "Hamlet",
+      "censusSubdivisionCode": "6205014",
+      "indigenousNames": [],
+      "formerNames": [],
+      "location": {
+        "lat": 64.133333,
+        "lon": -83.166667,
+        "sourceIds": [
+          "nrcan-cgndb",
+          "natural-earth-populated-places"
+        ],
+        "verification": "official-record",
+        "precision": "arc-minute"
+      },
+      "population": {
+        "count": 1035,
+        "censusYear": 2021,
+        "sourceIds": [
+          "statcan-2021-fogs"
+        ],
+        "verification": "official-record"
+      },
+      "links": [
+        {
+          "label": "Government of Nunavut: Coral Harbour",
+          "url": "https://www.gov.nu.ca/en/communities/coral-harbour",
+          "sourceId": "gov-nunavut-communities"
+        },
+        {
+          "label": "Canadian Geographical Names Database record",
+          "url": "https://geonames.nrcan.gc.ca/search-place-names/unique?id=OADUM",
+          "sourceId": "nrcan-cgndb"
+        }
+      ],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "gjoa-haven",
+      "name": "Gjoa Haven",
+      "regionId": "kitikmeot",
+      "municipalStatus": "Hamlet",
+      "indigenousNames": [],
+      "formerNames": [],
+      "location": {
+        "lat": 68.62602,
+        "lon": -95.87836,
+        "sourceIds": [
+          "geonames-cities500",
+          "natural-earth-populated-places"
+        ],
+        "verification": "cross-checked",
+        "precision": "decimal",
+        "note": "GeoNames and Natural Earth agree within about 2 km."
+      },
+      "population": null,
+      "links": [],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "grise-fiord",
+      "name": "Grise Fiord",
+      "regionId": "qikiqtaaluk",
+      "municipalStatus": "Hamlet",
+      "censusSubdivisionCode": "6204025",
+      "indigenousNames": [],
+      "formerNames": [],
+      "location": {
+        "lat": 76.416667,
+        "lon": -82.9,
+        "sourceIds": [
+          "gov-nunavut-communities",
+          "wikipedia-secondary"
+        ],
+        "verification": "cross-checked",
+        "precision": "arc-minute",
+        "note": "The CGNDB record named \"Grise Fiord\" is the fiord itself (76°35′N), not the hamlet, and is not used here."
+      },
+      "population": {
+        "count": 144,
+        "censusYear": 2021,
+        "sourceIds": [
+          "statcan-2021-fogs"
+        ],
+        "verification": "official-record"
+      },
+      "description": {
+        "text": "On the southern shore of Ellesmere Island. The Government of Nunavut describes it as Canada's most northerly community.",
+        "sourceIds": [
+          "gov-nunavut-communities"
+        ]
+      },
+      "links": [
+        {
+          "label": "Government of Nunavut: Grise Fiord",
+          "url": "https://www.gov.nu.ca/en/communities/grise-fiord",
+          "sourceId": "gov-nunavut-communities"
+        }
+      ],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "igloolik",
+      "name": "Igloolik",
+      "regionId": "qikiqtaaluk",
+      "municipalStatus": "Hamlet",
+      "censusSubdivisionCode": "6204012",
+      "indigenousNames": [],
+      "formerNames": [],
+      "location": {
+        "lat": 69.37771,
+        "lon": -81.79991,
+        "sourceIds": [
+          "geonames-cities500"
+        ],
+        "verification": "single-source",
+        "precision": "decimal",
+        "note": "Natural Earth places Igloolik about 13 km further south; the GeoNames position is used pending a CGNDB check."
+      },
+      "population": {
+        "count": 2049,
+        "censusYear": 2021,
+        "sourceIds": [
+          "statcan-2021-fogs"
+        ],
+        "verification": "official-record"
+      },
+      "links": [],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "iqaluit",
+      "name": "Iqaluit",
+      "regionId": "qikiqtaaluk",
+      "municipalStatus": "City",
+      "indigenousNames": [],
+      "formerNames": [
+        {
+          "name": "Frobisher Bay",
+          "sourceIds": [
+            "nrcan-cgndb",
+            "news-community-name-changes"
+          ],
+          "verification": "cross-checked"
+        }
+      ],
+      "location": {
+        "lat": 63.75,
+        "lon": -68.516667,
+        "sourceIds": [
+          "nrcan-cgndb",
+          "geonames-cities500"
+        ],
+        "verification": "official-record",
+        "precision": "arc-minute"
+      },
+      "population": {
+        "count": 7429,
+        "censusYear": 2021,
+        "sourceIds": [
+          "statcan-2021-fogs"
+        ],
+        "verification": "official-record"
+      },
+      "description": {
+        "text": "Territorial capital of Nunavut (GeoNames feature class: seat of a first-order administrative division).",
+        "sourceIds": [
+          "geonames-cities500"
+        ]
+      },
+      "links": [
+        {
+          "label": "Canadian Geographical Names Database record",
+          "url": "https://geonames.nrcan.gc.ca/search-place-names/unique?id=OATRP",
+          "sourceId": "nrcan-cgndb"
+        }
+      ],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "kimmirut",
+      "name": "Kimmirut",
+      "regionId": "qikiqtaaluk",
+      "municipalStatus": "Hamlet",
+      "censusSubdivisionCode": "6204005",
+      "indigenousNames": [],
+      "formerNames": [
+        {
+          "name": "Lake Harbour",
+          "sourceIds": [
+            "news-community-name-changes"
+          ],
+          "verification": "cross-checked",
+          "changedYear": 1996
+        }
+      ],
+      "location": {
+        "lat": 62.85,
+        "lon": -69.88,
+        "sourceIds": [
+          "gov-nunavut-communities",
+          "wikipedia-secondary",
+          "natural-earth-populated-places"
+        ],
+        "verification": "cross-checked",
+        "precision": "arc-minute"
+      },
+      "population": {
+        "count": 426,
+        "censusYear": 2021,
+        "sourceIds": [
+          "statcan-2021-fogs"
+        ],
+        "verification": "official-record"
+      },
+      "description": {
+        "text": "On the southern coast of Baffin Island, near the mouth of the Soper River.",
+        "sourceIds": [
+          "gov-nunavut-communities"
+        ]
+      },
+      "links": [
+        {
+          "label": "Government of Nunavut: Kimmirut",
+          "url": "https://www.gov.nu.ca/en/communities/kimmirut",
+          "sourceId": "gov-nunavut-communities"
+        }
+      ],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "kinngait",
+      "name": "Kinngait",
+      "regionId": "qikiqtaaluk",
+      "municipalStatus": "Hamlet",
+      "indigenousNames": [],
+      "formerNames": [
+        {
+          "name": "Cape Dorset",
+          "sourceIds": [
+            "news-community-name-changes",
+            "geonames-cities500",
+            "natural-earth-populated-places"
+          ],
+          "verification": "cross-checked",
+          "changedYear": 2020
+        }
+      ],
+      "location": {
+        "lat": 64.23378,
+        "lon": -76.54372,
+        "sourceIds": [
+          "geonames-cities500"
+        ],
+        "verification": "single-source",
+        "precision": "decimal",
+        "note": "Natural Earth (listed as \"Cape Dorset\") places the community about 9 km further north; the GeoNames position is used pending a CGNDB check."
+      },
+      "population": null,
+      "links": [],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "kugaaruk",
+      "name": "Kugaaruk",
+      "regionId": "kitikmeot",
+      "municipalStatus": "Hamlet",
+      "censusSubdivisionCode": "6208047",
+      "indigenousNames": [],
+      "formerNames": [
+        {
+          "name": "Pelly Bay",
+          "sourceIds": [
+            "news-community-name-changes"
+          ],
+          "verification": "cross-checked"
+        }
+      ],
+      "location": {
+        "lat": 68.534722,
+        "lon": -89.825,
+        "sourceIds": [
+          "nrcan-cgndb"
+        ],
+        "verification": "official-record",
+        "precision": "seconds"
+      },
+      "population": {
+        "count": 1033,
+        "censusYear": 2021,
+        "sourceIds": [
+          "statcan-2021-fogs"
+        ],
+        "verification": "official-record"
+      },
+      "links": [
+        {
+          "label": "Government of Nunavut: Kugaaruk",
+          "url": "https://www.gov.nu.ca/en/communities/kugaaruk",
+          "sourceId": "gov-nunavut-communities"
+        },
+        {
+          "label": "Canadian Geographical Names Database record",
+          "url": "https://geonames.nrcan.gc.ca/search-place-names/unique?id=OAUPF",
+          "sourceId": "nrcan-cgndb"
+        }
+      ],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "kugluktuk",
+      "name": "Kugluktuk",
+      "regionId": "kitikmeot",
+      "municipalStatus": "Hamlet",
+      "censusSubdivisionCode": "6208059",
+      "indigenousNames": [],
+      "formerNames": [
+        {
+          "name": "Coppermine",
+          "sourceIds": [
+            "news-community-name-changes"
+          ],
+          "verification": "cross-checked"
+        }
+      ],
+      "location": {
+        "lat": 67.82743,
+        "lon": -115.09649,
+        "sourceIds": [
+          "geonames-cities500",
+          "natural-earth-populated-places"
+        ],
+        "verification": "cross-checked",
+        "precision": "decimal",
+        "note": "GeoNames and Natural Earth agree within about 3.5 km."
+      },
+      "population": {
+        "count": 1382,
+        "censusYear": 2021,
+        "sourceIds": [
+          "statcan-2021-fogs"
+        ],
+        "verification": "official-record"
+      },
+      "links": [],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "naujaat",
+      "name": "Naujaat",
+      "regionId": "kivalliq",
+      "municipalStatus": "Hamlet",
+      "censusSubdivisionCode": "6205027",
+      "indigenousNames": [],
+      "formerNames": [
+        {
+          "name": "Repulse Bay",
+          "sourceIds": [
+            "news-community-name-changes"
+          ],
+          "verification": "cross-checked",
+          "changedYear": 2015
+        }
+      ],
+      "location": {
+        "lat": 66.521944,
+        "lon": -86.235,
+        "sourceIds": [
+          "wikidata",
+          "nunavut-ca",
+          "natural-earth-populated-places"
+        ],
+        "verification": "cross-checked",
+        "precision": "seconds",
+        "note": "The Government of Nunavut community page lists a longitude of 85°50′W, which disagrees with the other sources and is not used."
+      },
+      "population": null,
+      "description": {
+        "text": "The Government of Nunavut describes Naujaat as located on the Arctic Circle.",
+        "sourceIds": [
+          "gov-nunavut-communities"
+        ]
+      },
+      "links": [
+        {
+          "label": "Government of Nunavut: Naujaat",
+          "url": "https://www.gov.nu.ca/en/communities/naujaat",
+          "sourceId": "gov-nunavut-communities"
+        }
+      ],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "pangnirtung",
+      "name": "Pangnirtung",
+      "regionId": "qikiqtaaluk",
+      "municipalStatus": "Hamlet",
+      "censusSubdivisionCode": "6204009",
+      "indigenousNames": [],
+      "formerNames": [],
+      "location": {
+        "lat": 66.14642,
+        "lon": -65.69996,
+        "sourceIds": [
+          "geonames-cities500",
+          "natural-earth-populated-places"
+        ],
+        "verification": "cross-checked",
+        "precision": "decimal",
+        "note": "GeoNames and Natural Earth agree within about 3 km."
+      },
+      "population": {
+        "count": 1504,
+        "censusYear": 2021,
+        "sourceIds": [
+          "statcan-2021-fogs"
+        ],
+        "verification": "official-record",
+        "note": "A separate Statistics Canada languages publication reports 1,505; the Focus on Geography enumerated count is used."
+      },
+      "links": [],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "pond-inlet",
+      "name": "Pond Inlet",
+      "regionId": "qikiqtaaluk",
+      "municipalStatus": "Hamlet",
+      "censusSubdivisionCode": "6204020",
+      "indigenousNames": [],
+      "formerNames": [],
+      "location": {
+        "lat": 72.6992,
+        "lon": -77.9595,
+        "sourceIds": [
+          "geonames-cities500",
+          "natural-earth-populated-places"
+        ],
+        "verification": "cross-checked",
+        "precision": "decimal"
+      },
+      "population": {
+        "count": 1555,
+        "censusYear": 2021,
+        "sourceIds": [
+          "statcan-2021-fogs"
+        ],
+        "verification": "official-record"
+      },
+      "links": [],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "qikiqtarjuaq",
+      "name": "Qikiqtarjuaq",
+      "regionId": "qikiqtaaluk",
+      "municipalStatus": "Hamlet",
+      "censusSubdivisionCode": "6204010",
+      "indigenousNames": [],
+      "formerNames": [
+        {
+          "name": "Broughton Island",
+          "sourceIds": [
+            "news-community-name-changes"
+          ],
+          "verification": "cross-checked"
+        }
+      ],
+      "location": {
+        "lat": 67.55,
+        "lon": -64.033333,
+        "sourceIds": [
+          "gov-nunavut-communities",
+          "wikipedia-secondary"
+        ],
+        "verification": "cross-checked",
+        "precision": "arc-minute",
+        "note": "A different CGNDB feature named Qikiqtarjuaq is an island in Hudson Strait; it is not this community."
+      },
+      "population": {
+        "count": 593,
+        "censusYear": 2021,
+        "sourceIds": [
+          "statcan-2021-fogs"
+        ],
+        "verification": "official-record"
+      },
+      "links": [
+        {
+          "label": "Government of Nunavut: Qikiqtarjuaq",
+          "url": "https://www.gov.nu.ca/en/communities/qikiqtarjuaq",
+          "sourceId": "gov-nunavut-communities"
+        }
+      ],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "rankin-inlet",
+      "name": "Rankin Inlet",
+      "regionId": "kivalliq",
+      "municipalStatus": "Hamlet",
+      "censusSubdivisionCode": "6205017",
+      "indigenousNames": [
+        {
+          "name": "Kangiqliniq",
+          "language": "Inuktitut",
+          "script": "latin",
+          "sourceIds": [
+            "wikipedia-secondary"
+          ],
+          "verification": "single-source",
+          "note": "Secondary source; awaiting review by an Inuktut language authority."
+        }
+      ],
+      "formerNames": [],
+      "location": {
+        "lat": 62.80906,
+        "lon": -92.08534,
+        "sourceIds": [
+          "geonames-cities500",
+          "natural-earth-populated-places"
+        ],
+        "verification": "cross-checked",
+        "precision": "decimal"
+      },
+      "population": {
+        "count": 2975,
+        "censusYear": 2021,
+        "sourceIds": [
+          "statcan-2021-fogs"
+        ],
+        "verification": "official-record"
+      },
+      "links": [
+        {
+          "label": "Government of Nunavut: Rankin Inlet",
+          "url": "https://www.gov.nu.ca/en/communities/rankin-inlet",
+          "sourceId": "gov-nunavut-communities"
+        }
+      ],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "resolute",
+      "name": "Resolute",
+      "regionId": "qikiqtaaluk",
+      "municipalStatus": "Hamlet",
+      "censusSubdivisionCode": "6204022",
+      "indigenousNames": [],
+      "formerNames": [],
+      "location": {
+        "lat": 74.695833,
+        "lon": -94.829167,
+        "sourceIds": [
+          "nrcan-cgndb"
+        ],
+        "verification": "official-record",
+        "precision": "seconds"
+      },
+      "population": {
+        "count": 183,
+        "censusYear": 2021,
+        "sourceIds": [
+          "statcan-2021-fogs"
+        ],
+        "verification": "official-record"
+      },
+      "links": [
+        {
+          "label": "Government of Nunavut: Resolute",
+          "url": "https://www.gov.nu.ca/en/communities/resolute-bay",
+          "sourceId": "gov-nunavut-communities"
+        },
+        {
+          "label": "Canadian Geographical Names Database record",
+          "url": "https://geonames.nrcan.gc.ca/search-place-names/unique?id=OANWX",
+          "sourceId": "nrcan-cgndb"
+        }
+      ],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "sanikiluaq",
+      "name": "Sanikiluaq",
+      "regionId": "qikiqtaaluk",
+      "municipalStatus": "Hamlet",
+      "censusSubdivisionCode": "6204001",
+      "indigenousNames": [],
+      "formerNames": [],
+      "location": {
+        "lat": 56.533333,
+        "lon": -79.233333,
+        "sourceIds": [
+          "nrcan-cgndb"
+        ],
+        "verification": "official-record",
+        "precision": "arc-minute"
+      },
+      "population": {
+        "count": 1010,
+        "censusYear": 2021,
+        "sourceIds": [
+          "statcan-2021-fogs"
+        ],
+        "verification": "official-record"
+      },
+      "links": [
+        {
+          "label": "Government of Nunavut: Sanikiluaq",
+          "url": "https://www.gov.nu.ca/en/communities/sanikiluaq",
+          "sourceId": "gov-nunavut-communities"
+        },
+        {
+          "label": "Canadian Geographical Names Database record",
+          "url": "https://geonames.nrcan.gc.ca/search-place-names/unique?id=OAOKW",
+          "sourceId": "nrcan-cgndb"
+        }
+      ],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "sanirajak",
+      "name": "Sanirajak",
+      "regionId": "qikiqtaaluk",
+      "municipalStatus": "Hamlet",
+      "indigenousNames": [],
+      "formerNames": [
+        {
+          "name": "Hall Beach",
+          "sourceIds": [
+            "news-community-name-changes",
+            "natural-earth-populated-places"
+          ],
+          "verification": "cross-checked",
+          "changedYear": 2020
+        }
+      ],
+      "location": {
+        "lat": 68.790278,
+        "lon": -81.2375,
+        "sourceIds": [
+          "nrcan-cgndb",
+          "natural-earth-populated-places"
+        ],
+        "verification": "official-record",
+        "precision": "seconds"
+      },
+      "population": null,
+      "links": [
+        {
+          "label": "Government of Nunavut: Sanirajak",
+          "url": "https://www.gov.nu.ca/en/communities/sanirajak",
+          "sourceId": "gov-nunavut-communities"
+        },
+        {
+          "label": "Canadian Geographical Names Database record",
+          "url": "https://geonames.nrcan.gc.ca/search-place-names/unique?id=OAURC",
+          "sourceId": "nrcan-cgndb"
+        }
+      ],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "taloyoak",
+      "name": "Taloyoak",
+      "regionId": "kitikmeot",
+      "municipalStatus": "Hamlet",
+      "censusSubdivisionCode": "6208087",
+      "indigenousNames": [],
+      "formerNames": [
+        {
+          "name": "Spence Bay",
+          "sourceIds": [
+            "news-community-name-changes"
+          ],
+          "verification": "cross-checked"
+        }
+      ],
+      "location": {
+        "lat": 69.536111,
+        "lon": -93.520833,
+        "sourceIds": [
+          "nrcan-cgndb",
+          "natural-earth-populated-places"
+        ],
+        "verification": "official-record",
+        "precision": "seconds"
+      },
+      "population": {
+        "count": 934,
+        "censusYear": 2021,
+        "sourceIds": [
+          "statcan-2021-fogs"
+        ],
+        "verification": "official-record"
+      },
+      "links": [
+        {
+          "label": "Canadian Geographical Names Database record",
+          "url": "https://geonames.nrcan.gc.ca/search-place-names/unique?id=OATTU",
+          "sourceId": "nrcan-cgndb"
+        }
+      ],
+      "lastReviewed": "2026-10-14"
+    },
+    {
+      "id": "whale-cove",
+      "name": "Whale Cove",
+      "regionId": "kivalliq",
+      "municipalStatus": "Hamlet",
+      "censusSubdivisionCode": "6205016",
+      "indigenousNames": [
+        {
+          "name": "Tikiraqjuaq",
+          "language": "Inuktitut",
+          "script": "latin",
+          "sourceIds": [
+            "gov-nunavut-communities"
+          ],
+          "verification": "single-source",
+          "note": "As written on the Government of Nunavut community page; awaiting review by an Inuktut language authority."
+        }
+      ],
+      "formerNames": [],
+      "location": {
+        "lat": 62.183333,
+        "lon": -92.566667,
+        "sourceIds": [
+          "gov-nunavut-communities",
+          "wikipedia-secondary"
+        ],
+        "verification": "cross-checked",
+        "precision": "arc-minute"
+      },
+      "population": {
+        "count": 470,
+        "censusYear": 2021,
+        "sourceIds": [
+          "statcan-2021-fogs"
+        ],
+        "verification": "official-record"
+      },
+      "description": {
+        "text": "At the tip of a long peninsula on the west coast of Hudson Bay.",
+        "sourceIds": [
+          "gov-nunavut-communities"
+        ]
+      },
+      "links": [
+        {
+          "label": "Government of Nunavut: Whale Cove",
+          "url": "https://www.gov.nu.ca/en/communities/whale-cove",
+          "sourceId": "gov-nunavut-communities"
+        }
+      ],
+      "lastReviewed": "2026-10-14"
+    }
+  ]
+}

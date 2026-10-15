@@ -1,0 +1,53 @@
+{
+  "name": "nunavut-atlas",
+  "private": true,
+  "version": "0.1.0",
+  "description": "An Inuit-informed, open-source geographic atlas of Nunavut.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run typecheck && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "validate:data": "vitest run tests/data-integrity.test.ts tests/community-dataset.test.ts",
+    "build:geodata": "node scripts/build-geodata.mjs",
+    "e2e": "node scripts/e2e-smoke.mjs",
+    "check": "npm run lint && npm run typecheck && npm run validate:data && npm run test"
+  },
+  "dependencies": {
+    "leaflet": "1.9.4",
+    "lucide-react": "1.57.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-leaflet": "5.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@testing-library/dom": "10.4.2",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.8",
+    "@types/leaflet": "1.9.22",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "eslint": "10.12.0",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "eslint-plugin-react-refresh": "0.5.7",
+    "globals": "17.13.0",
+    "jsdom": "30.1.2",
+    "mapshaper": "0.7.86",
+    "playwright": "1.64.1",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.71.2",
+    "vite": "8.3.4",
+    "vitest": "5.0.4"
+  }
+}
