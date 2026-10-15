@@ -115,3 +115,22 @@ describe('App', () => {
     expect(await screen.findByText(/No community with the identifier “atlantis”/)).toBeInTheDocument();
   });
 });
+
+describe('App in a frame that refuses history changes', () => {
+  it('still completes the selection', async () => {
+    serveBundledData();
+    const spy = vi.spyOn(window.history, 'replaceState').mockImplementation(() => {
+      throw new DOMException('Blocked', 'SecurityError');
+    });
+    const user = userEvent.setup();
+    render(<App />);
+    await user.type(screen.getByRole('combobox'), 'iqaluit');
+    await user.keyboard('{Enter}');
+    expect(await screen.findByRole('region', { name: 'Iqaluit' })).toBeInTheDocument();
+    // The search box finishes its own update (closes and shows the chosen name),
+    // which only happens if selecting did not throw.
+    expect(screen.getByRole('combobox')).toHaveValue('Iqaluit');
+    expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
+    spy.mockRestore();
+  });
+});
