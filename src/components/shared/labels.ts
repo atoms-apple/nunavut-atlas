@@ -43,11 +43,5 @@ export const CLASSIFICATION_LABEL: Record<DataClassification, { label: string; t
   },
 };
 
-/** Plain-language names for fields a community record may be missing. */
-export const MISSING_FIELD_LABEL: Record<string, string> = {
-  location: 'verified coordinates',
-  population: 'verified census population',
-  indigenousNames: 'Inuktut name forms',
-  description: 'geographic description',
-  links: 'official links',
-};
+
+export { MISSING_FIELD_LABEL } from '../../lib/communities/fields';

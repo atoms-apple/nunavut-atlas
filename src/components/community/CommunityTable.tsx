@@ -1,4 +1,4 @@
-import { useId, useMemo, useState, type ReactNode } from 'react';
+import { useId, useMemo, useState } from 'react';
 import { ArrowDown, ArrowUp, ArrowUpDown } from 'lucide-react';
 import type { Community, RegionId, VerificationLevel } from '../../types/community';
 import { getRegion } from '../../data/regions/regions';
@@ -13,6 +13,7 @@ import {
 import { Badge } from '../shared/Badge';
 import { RegionSymbol } from '../shared/RegionSymbol';
 import { MISSING_FIELD_LABEL, VERIFICATION_LABEL } from '../shared/labels';
+import { ExportActions } from './ExportActions';
 import { RegionFilter } from './RegionFilter';
 
 const NUMBER = new Intl.NumberFormat('en-CA');
@@ -31,8 +32,6 @@ interface Props {
   onRegionFilterChange: (region: RegionId | 'all') => void;
   selectedId: string | null;
   onSelect: (id: string) => void;
-  /** Receives the rows currently shown, in order (used by export). */
-  renderActions?: (rows: Community[]) => ReactNode;
 }
 
 function SortHeader({
@@ -62,7 +61,7 @@ function SortHeader({
  * Sortable, filterable table of communities. The region filter is shared
  * with the map and the list; the other filters and the sort are local.
  */
-export function CommunityTable({ communities, regionFilter, onRegionFilterChange, selectedId, onSelect, renderActions }: Props) {
+export function CommunityTable({ communities, regionFilter, onRegionFilterChange, selectedId, onSelect }: Props) {
   const [sort, setSort] = useState<TableSort>(DEFAULT_SORT);
   const [verifiedPopulationOnly, setVerifiedPopulationOnly] = useState(false);
   const [verification, setVerification] = useState<VerificationLevel | 'any'>('any');
@@ -107,7 +106,7 @@ export function CommunityTable({ communities, regionFilter, onRegionFilterChange
         Showing {rows.length} of {communities.length} communities.
         {regionFilter !== 'all' && ' The map shows the same region.'}
       </p>
-      {renderActions?.(rows)}
+      <ExportActions rows={rows} total={communities.length} />
       <div className="table-scroll" role="region" aria-labelledby={`${ids}-caption`} tabIndex={0}>
         <table className="data-table">
           <caption id={`${ids}-caption`}>

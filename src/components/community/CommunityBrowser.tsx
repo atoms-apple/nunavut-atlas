@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react';
 import type { Community, RegionId } from '../../types/community';
 import { CommunityList } from './CommunityList';
 import { CommunityTable } from './CommunityTable';
@@ -13,7 +12,6 @@ interface Props {
   onRegionFilterChange: (region: RegionId | 'all') => void;
   selectedId: string | null;
   onSelect: (id: string) => void;
-  renderTableActions?: (rows: Community[]) => ReactNode;
 }
 
 const VIEWS: { id: CommunityView; label: string }[] = [
@@ -22,7 +20,7 @@ const VIEWS: { id: CommunityView; label: string }[] = [
 ];
 
 /** Communities panel content: the grouped list (default) or a sortable table. */
-export function CommunityBrowser({ view, onViewChange, renderTableActions, ...shared }: Props) {
+export function CommunityBrowser({ view, onViewChange, ...shared }: Props) {
   return (
     <>
       <fieldset className="segmented">
@@ -43,7 +41,7 @@ export function CommunityBrowser({ view, onViewChange, renderTableActions, ...sh
       {view === 'list' ? (
         <CommunityList {...shared} />
       ) : (
-        <CommunityTable {...shared} {...(renderTableActions ? { renderActions: renderTableActions } : {})} />
+        <CommunityTable {...shared} />
       )}
     </>
   );
