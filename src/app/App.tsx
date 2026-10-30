@@ -238,6 +238,8 @@ export function App() {
             setRegionFilter(region.id);
             select({ kind: 'region', id: region.id });
           }}
+          communities={COMMUNITIES}
+          onSelectCommunity={(id) => select({ kind: 'community', id })}
         />
       </Panel>
     );

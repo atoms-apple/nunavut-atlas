@@ -6,6 +6,7 @@ import { statCanProfileUrl } from '../../lib/links';
 import { Badge } from '../shared/Badge';
 import { RegionSymbol } from '../shared/RegionSymbol';
 import { SourceList } from '../shared/SourceList';
+import { CommunityDistances } from './CommunityDistances';
 import { MISSING_FIELD_LABEL, VERIFICATION_LABEL } from '../shared/labels';
 
 const NUMBER = new Intl.NumberFormat('en-CA');
@@ -15,9 +16,12 @@ interface Props {
   community: Community;
   onZoomTo: () => void;
   onSelectRegion: () => void;
+  /** All communities, for nearest-community distances. Omit to hide distances. */
+  communities?: readonly Community[];
+  onSelectCommunity?: (id: string) => void;
 }
 
-export function CommunityDetails({ community: c, onZoomTo, onSelectRegion }: Props) {
+export function CommunityDetails({ community: c, onZoomTo, onSelectRegion, communities, onSelectCommunity }: Props) {
   const region = getRegion(c.regionId);
   const allSourceIds = [
     ...(c.location?.sourceIds ?? []),
@@ -135,6 +139,10 @@ export function CommunityDetails({ community: c, onZoomTo, onSelectRegion }: Pro
         <button type="button" className="button button--secondary" onClick={onZoomTo}>
           <LocateFixed size={16} aria-hidden="true" /> Zoom to {c.name}
         </button>
+      )}
+
+      {communities && onSelectCommunity && (
+        <CommunityDistances key={c.id} community={c} communities={communities} onSelectCommunity={onSelectCommunity} />
       )}
 
       <h3 className="details__heading">Official resources</h3>

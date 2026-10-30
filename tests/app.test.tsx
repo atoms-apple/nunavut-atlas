@@ -129,7 +129,7 @@ describe('App in a frame that refuses history changes', () => {
     expect(await screen.findByRole('region', { name: 'Iqaluit' })).toBeInTheDocument();
     // The search box finishes its own update (closes and shows the chosen name),
     // which only happens if selecting did not throw.
-    expect(screen.getByRole('combobox')).toHaveValue('Iqaluit');
+    expect(screen.getByRole('combobox', { name: /search/i })).toHaveValue('Iqaluit');
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
     spy.mockRestore();
   });

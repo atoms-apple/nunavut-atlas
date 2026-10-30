@@ -16,7 +16,7 @@ afterEach(() => vi.unstubAllGlobals());
 const liveRegion = (container: HTMLElement) => container.querySelector('[aria-live="polite"]');
 
 async function searchAndChoose(user: ReturnType<typeof userEvent.setup>, query: string, option: RegExp) {
-  const input = screen.getByRole('combobox');
+  const input = screen.getByRole('combobox', { name: /search/i });
   await user.clear(input);
   await user.type(input, query);
   await user.click(await screen.findByRole('option', { name: option }));
@@ -35,8 +35,8 @@ describe('live region announcements', () => {
 
     // Physical features come from a lazily loaded file.
     await waitFor(async () => {
-      await user.clear(screen.getByRole('combobox'));
-      await user.type(screen.getByRole('combobox'), 'baffin island');
+      await user.clear(screen.getByRole('combobox', { name: /search/i }));
+      await user.type(screen.getByRole('combobox', { name: /search/i }), 'baffin island');
       expect(screen.getByRole('option', { name: /^Baffin Island/ })).toBeInTheDocument();
     });
     await user.click(screen.getByRole('option', { name: /^Baffin Island/ }));
@@ -57,7 +57,7 @@ describe('focus return when a panel closes', () => {
   it('returns focus to the search box after closing details with Escape', async () => {
     const user = userEvent.setup();
     render(<App />);
-    const input = screen.getByRole('combobox');
+    const input = screen.getByRole('combobox', { name: /search/i });
     await user.type(input, 'arviat');
     await user.keyboard('{Enter}');
     const heading = await screen.findByRole('heading', { level: 2, name: 'Arviat' });
@@ -81,11 +81,11 @@ describe('focus return when a panel closes', () => {
   it('falls back to the map when the opener is gone', async () => {
     const user = userEvent.setup();
     const { container } = render(<App />);
-    await user.type(screen.getByRole('combobox'), 'arviat');
+    await user.type(screen.getByRole('combobox', { name: /search/i }), 'arviat');
     await user.keyboard('{Enter}');
     // The region link replaces the community panel with the region panel.
     await user.click(await screen.findByRole('button', { name: /Kivalliq/ }));
-    const input = screen.getByRole('combobox');
+    const input = screen.getByRole('combobox', { name: /search/i });
     input.remove();
     await user.click(await screen.findByRole('button', { name: 'Close Kivalliq Region panel' }));
     expect(container.querySelector('.leaflet-container')).toHaveFocus();
@@ -96,7 +96,7 @@ describe('region link in a community panel', () => {
   it('sets the region filter for the map and the list', async () => {
     const user = userEvent.setup();
     const { container } = render(<App />);
-    await user.type(screen.getByRole('combobox'), 'arviat');
+    await user.type(screen.getByRole('combobox', { name: /search/i }), 'arviat');
     await user.keyboard('{Enter}');
     await user.click(await screen.findByRole('button', { name: /Kivalliq/ }));
     expect(await screen.findByRole('region', { name: 'Kivalliq Region' })).toBeInTheDocument();
@@ -113,7 +113,7 @@ describe('counts come from the data', () => {
     render(<App />);
     await user.click(screen.getByRole('button', { name: 'Communities' }));
     expect(screen.getByText(`All ${COMMUNITIES.length} municipalities, grouped by region`)).toBeInTheDocument();
-    await user.type(screen.getByRole('combobox'), 'zzzz');
+    await user.type(screen.getByRole('combobox', { name: /search/i }), 'zzzz');
     expect(
       screen.getAllByText(new RegExp(`${COMMUNITIES.length} municipalities .*its ${REGIONS.length} regions`)).length,
     ).toBeGreaterThan(0);
