@@ -70,6 +70,20 @@ npm run validate:data
 
 This runs `tests/data-integrity.test.ts` and `tests/community-dataset.test.ts`. They check the source register, the layer registry, the community records (coordinates, ranges, duplicates, sources, regions) and every bundled GeoJSON file (geometry types, nesting, coordinate order and range, ids, required properties, file size).
 
+## Re-check values against official pages
+
+Some values in this release were transcribed from search excerpts of official pages. [`docs/VERIFICATION_CHECKLIST.md`](docs/VERIFICATION_CHECKLIST.md) lists each one with the page to check it against, plus the gaps that should be filled only from official pages (missing populations, missing census subdivision codes, single-source coordinates).
+
+1. Open the page for a row, compare the value, and write the date and your name in the "Confirmed on / by" column.
+2. If a value is wrong or a gap can be filled, change `src/data/communities/communities.json` in its own pull request, citing the page (see "Add or update a community record" above).
+3. Regenerate the checklist so it matches the data:
+
+   ```bash
+   npm run build:checklist
+   ```
+
+   The script only reads the data. It keeps anything already written in the "Confirmed on / by" column.
+
 ## Run tests
 
 ```bash

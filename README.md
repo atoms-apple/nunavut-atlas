@@ -25,6 +25,12 @@ The atlas is a static web application. It needs no server, database, account or 
 | Base maps: OpenStreetMap, NASA Blue Marble relief, or a bundled offline outline | Working |
 | Offline fallback: if online tiles fail, a banner explains why and the bundled land outline is drawn; all atlas data, search and panels keep working | Working |
 | Community list grouped by region, as a text alternative to the map | Working |
+| Community table (switch from List to Table in the Communities panel): sort by community, region, 2021 population or latitude; filter by region, verified population and coordinate verification. Missing values always sort last and read "not yet added". | Working |
+| Download the rows shown in the table as CSV (UTF-8, opens in Excel with syllabics intact) or GeoJSON, plus an attribution and licences file to keep with the data. Files are built in the browser; nothing is sent anywhere. | Working |
+| Nearest communities and a "distance to…" picker in each community panel: straight-line (great-circle) distances between recorded coordinates, marked *Derived*. Not travel or flight distances. | Working |
+| Region summaries: number of communities, verified 2021 population subtotal **with its coverage** (marked *Derived*, not an official regional total), and the northernmost and southernmost communities | Working |
+| Metric scale bar (accurate only near the centre of the view, because of Web Mercator) | Working |
+| Accessibility: keyboard focus returns to whatever opened a panel when it closes; selections are announced to screen readers; Windows High Contrast (forced colours) keeps markers, badges and focus visible | Working |
 | About & data panel with the full source register, data classifications and a privacy note | Working |
 | Deep links (`#/community/iqaluit`, `#/region/kivalliq`, `#/feature/ne-baffin-island`) | Working |
 | Responsive layout with bottom sheets on phones | Working |
@@ -80,6 +86,7 @@ Then open the URL Vite prints (normally <http://localhost:5173/>).
 | `npm run validate:data` | Validate the bundled datasets, the source register and the layer registry |
 | `npm run check` | Lint, type-check, validate data and run tests |
 | `npm run build:geodata` | Re-download Natural Earth and regenerate `public/data/*.geojson` (needs internet) |
+| `npm run build:checklist` | Regenerate `docs/VERIFICATION_CHECKLIST.md`, the list of values to re-check against official pages (no data is changed) |
 | `npm run e2e` | Browser smoke test of the main user journey against `dist/` (run `npm run build` first; needs a Chromium. Set `CHROMIUM_PATH` if Playwright's browser is not installed) |
 
 ## Production build and base path
@@ -111,7 +118,7 @@ One-time setup by the repository owner:
 
 If the deploy job fails with a Pages error, check that step 2 was done. The check-and-build job does not depend on Pages being enabled.
 
-> **Status:** this repository contains the deployment workflow, but as of this release it has **not** been deployed. Nobody has verified a public URL yet.
+> **Status:** the site is deployed from `main` at <https://atoms-apple.github.io/nunavut-atlas/>. Pull requests are checked but never deployed; only merges to `main` change the live site.
 
 ## Project structure
 
@@ -134,6 +141,7 @@ src/
     sources/          sources.ts (data source register)
   hooks/              GeoJSON loader, session preferences, hash selection, media queries
   lib/
+    communities/      table sorting/filtering, export builders, distances, region summaries
     geo/              coordinate helpers and GeoJSON validation
     search/           search index and matching
     storage/          sessionStorage wrapper
@@ -141,7 +149,7 @@ src/
   styles/             tokens.css, global.css, map.css
   types/              shared TypeScript types
 public/data/          generalized GeoJSON loaded on demand
-scripts/              build-geodata.mjs, e2e-smoke.mjs
+scripts/              build-geodata.mjs, build-verification-checklist.mjs, e2e-smoke.mjs
 tests/                Vitest unit, component and integration tests
 docs/                 data sources, schema, data classification, screenshots
 ```
@@ -173,8 +181,9 @@ There are no accounts, analytics, advertising or tracking. Search runs entirely 
 
 ## Known limitations
 
-- **Data was gathered through a restricted network.** Statistics Canada, NRCan and Government of Nunavut websites could not be opened directly from the build environment. Their values were read from search-engine excerpts of the official pages. Each value is recorded with its source, but all of them should be re-checked against the published pages (see `docs/DATA_SOURCES.md`).
-- **Five communities have no population yet**: Baker Lake, Gjoa Haven, Kinngait, Naujaat and Sanirajak.
+- **Data was gathered through a restricted network.** Statistics Canada, NRCan and Government of Nunavut websites could not be opened directly from the build environment. Their values were read from search-engine excerpts of the official pages. Each value is recorded with its source, but all of them should be re-checked against the published pages. [`docs/VERIFICATION_CHECKLIST.md`](docs/VERIFICATION_CHECKLIST.md) lists each one with the page to check it against.
+- **Five communities have no population yet**: Baker Lake, Gjoa Haven, Kinngait, Naujaat and Sanirajak. Region population subtotals therefore cover only part of each region, and always say how many communities they include.
+- **Distances are straight lines.** Nearest-community and "distance to" figures are great-circle distances between recorded coordinates, not travel, flight or route distances, and are approximate where coordinates are recorded to the nearest arc-minute.
 - **Three coordinates are single-source** (Clyde River, Igloolik and Kinngait, all from GeoNames). Natural Earth disagrees with the GeoNames positions for Igloolik (about 13 km) and Kinngait (about 9 km).
 - **Inuktut names are sparse and unreviewed.** Only five communities have an Inuktut name form recorded, all from secondary sources and marked "Awaiting language review". The atlas does not yet include Inuit place names beyond the official community names.
 - **No region boundaries.** Verified boundary files could not be obtained, so regions appear as groupings, not areas.
