@@ -10,7 +10,7 @@
  * Set SCREENSHOT_DIR to save screenshots.
  */
 import { spawn } from 'node:child_process';
-import { mkdir } from 'node:fs/promises';
+import { mkdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
@@ -39,6 +39,21 @@ async function waitForServer(url, timeoutMs = 20000) {
     await new Promise((r) => setTimeout(r, 250));
   }
   throw new Error(`Preview server did not start at ${url}`);
+}
+
+/** True when two elements' boxes overlap on screen. */
+async function overlaps(page, a, b) {
+  return page.evaluate(
+    ([sa, sb]) => {
+      const ea = document.querySelector(sa);
+      const eb = document.querySelector(sb);
+      if (!ea || !eb) return false;
+      const ra = ea.getBoundingClientRect();
+      const rb = eb.getBoundingClientRect();
+      return ra.left < rb.right && rb.left < ra.right && ra.top < rb.bottom && rb.top < ra.bottom;
+    },
+    [a, b],
+  );
 }
 
 async function shot(page, name) {
@@ -158,6 +173,78 @@ try {
   await shot(page, '04-desktop-communities');
   await page.getByRole('radio', { name: 'All regions' }).check({ force: true });
 
+  // Scale bar sits clear of the legend and the attribution.
+  const scaleVisible = await page.locator('.leaflet-control-scale-line').isVisible();
+  const scaleClear =
+    !(await overlaps(page, '.leaflet-control-scale', '.legend')) &&
+    !(await overlaps(page, '.leaflet-control-scale', '.leaflet-control-attribution'));
+  check('Scale bar is visible and clear of legend and attribution (desktop)', scaleVisible && scaleClear);
+
+  // Community table, sorting and CSV export
+  await page.getByRole('radio', { name: 'Table' }).check({ force: true });
+  const table = page.getByRole('table');
+  await table.waitFor();
+  const tableRows = await table.locator('tbody tr').count();
+  check('Table view lists all communities', tableRows === 25, `found ${tableRows}`);
+  const popHeader = page.getByRole('columnheader', { name: /Population/ });
+  await popHeader.getByRole('button').click();
+  const firstRow = await table.locator('tbody tr').first().locator('th').innerText();
+  const popSort = await popHeader.getAttribute('aria-sort');
+  check('Sorting by population puts Iqaluit first', firstRow === 'Iqaluit' && popSort === 'descending', `${firstRow}, ${popSort}`);
+  const lastRowText = await table.locator('tbody tr').last().innerText();
+  check('Missing populations sort last', /not yet added/.test(lastRowText));
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Download CSV' }).click(),
+  ]);
+  const csvPath = await download.path();
+  const csv = csvPath ? await readFile(csvPath, 'utf8') : '';
+  // trimEnd, not trim: trim() would also strip the byte-order mark being checked.
+  const csvLines = csv.trimEnd().split(/\r?\n/);
+  check(
+    'CSV download has a BOM, the header and one row per shown community',
+    csv.startsWith('\uFEFF') && csvLines[0]?.startsWith('\uFEFFid,name,region') && csvLines.length === 26 && /^iqaluit,/.test(csvLines[1] ?? ''),
+    `${download.suggestedFilename()}, ${csvLines.length} lines`,
+  );
+  check('CSV filename includes the date', /^nunavut-atlas-communities-\d{4}-\d{2}-\d{2}\.csv$/.test(download.suggestedFilename()));
+  await shot(page, '04b-desktop-table');
+  await page.getByRole('radio', { name: 'List' }).check({ force: true });
+
+  // Closing a panel returns focus to the button that opened it
+  await page.getByRole('button', { name: 'Close Communities panel' }).click();
+  const focusedName = await page.evaluate(() => document.activeElement?.textContent?.trim());
+  check('Closing a panel returns focus to its opener', focusedName === 'Communities', String(focusedName));
+
+  // Nearest communities in a community panel
+  await search.fill('Rankin Inlet');
+  await search.press('Enter');
+  const nearest = page.getByRole('region', { name: /Nearest communities/ });
+  await nearest.waitFor();
+  const nearestItems = await nearest.getByRole('listitem').count();
+  const nearestText = await nearest.innerText();
+  check('Nearest communities lists 5 neighbours in km', nearestItems === 5 && / km/.test(nearestText) && /Derived/.test(nearestText));
+  await page.getByRole('combobox', { name: 'Distance from Rankin Inlet to' }).selectOption({ label: 'Iqaluit' });
+  const distanceText = await nearest.locator('output').innerText();
+  check('Distance picker shows a distance', /^[\d,]+ km to Iqaluit$/.test(distanceText), distanceText);
+  await nearest.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(900);
+  await shot(page, '04c-desktop-nearest');
+
+  // Region summary
+  await page.locator('.panel--right').getByRole('button', { name: /Kivalliq/ }).first().click();
+  const regionPanel = page.getByRole('region', { name: 'Kivalliq Region' });
+  await regionPanel.waitFor();
+  const regionText = await regionPanel.innerText();
+  check(
+    'Region summary shows subtotal with coverage and north/south communities',
+    /across \d+ of 7 communities with a verified 2021 census population/.test(regionText) &&
+      /Northernmost\s*Naujaat/.test(regionText) &&
+      /Southernmost\s*Arviat/.test(regionText),
+  );
+  await page.waitForTimeout(900);
+  await shot(page, '04d-desktop-region-summary');
+  await page.getByRole('button', { name: 'Close Kivalliq Region panel' }).click();
+
   // Keyboard access to a marker
   await page.locator('.atlas-marker--community[title^="Arviat"]').focus();
   await page.keyboard.press('Enter');
@@ -181,6 +268,12 @@ try {
   check('Deep link opens a community on mobile', true);
   const overflow = await m.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
   check('No horizontal overflow on mobile', !overflow);
+  const bannerBox = await m.locator('.map-banner').boundingBox();
+  check(
+    'Tile message stays on screen on mobile',
+    !!bannerBox && bannerBox.x >= 0 && bannerBox.x + bannerBox.width <= 390,
+    bannerBox ? `x=${Math.round(bannerBox.x)}, width=${Math.round(bannerBox.width)}` : 'no banner',
+  );
   await m.waitForTimeout(1200);
   await shot(m, '05-mobile-pond-inlet');
   await m.getByRole('button', { name: 'Close Pond Inlet panel' }).click();
@@ -188,6 +281,41 @@ try {
   await m.getByRole('heading', { name: 'Layers', level: 2 }).waitFor();
   check('Layers sheet opens on mobile', true);
   await shot(m, '06-mobile-layers');
+  await m.getByRole('button', { name: 'Close Layers panel' }).click();
+
+  const mobileScaleClear =
+    (await m.locator('.leaflet-control-scale-line').isVisible()) &&
+    !(await overlaps(m, '.leaflet-control-scale', '.legend')) &&
+    !(await overlaps(m, '.leaflet-control-scale', '.leaflet-control-attribution'));
+  check('Scale bar is visible and clear of legend and attribution (mobile)', mobileScaleClear);
+
+  await m.getByRole('button', { name: 'Communities' }).click();
+  await m.getByRole('radio', { name: 'Table' }).check({ force: true });
+  await m.getByRole('table').waitFor();
+  const mobileTable = await m.evaluate(() => {
+    const scroller = document.querySelector('.table-scroll');
+    return {
+      pageOverflow: document.documentElement.scrollWidth > window.innerWidth,
+      tableScrolls: !!scroller && scroller.scrollWidth > scroller.clientWidth,
+    };
+  });
+  check('Mobile table scrolls inside the sheet, not the page', !mobileTable.pageOverflow && mobileTable.tableScrolls, JSON.stringify(mobileTable));
+  await shot(m, '07-mobile-table');
+  await m.getByRole('button', { name: 'Close Communities panel' }).click();
+
+  await m.goto(`${URL}#/community/rankin-inlet`);
+  const mNearest = m.getByRole('region', { name: /Nearest communities/ });
+  await mNearest.waitFor();
+  await mNearest.scrollIntoViewIfNeeded();
+  check('No horizontal overflow with nearest communities on mobile', !(await m.evaluate(() => document.documentElement.scrollWidth > window.innerWidth)));
+  await m.waitForTimeout(900);
+  await shot(m, '08-mobile-nearest');
+
+  await m.goto(`${URL}#/region/kivalliq`);
+  await m.getByRole('heading', { name: 'Kivalliq Region', level: 2 }).waitFor();
+  check('No horizontal overflow with region summary on mobile', !(await m.evaluate(() => document.documentElement.scrollWidth > window.innerWidth)));
+  await m.waitForTimeout(900);
+  await shot(m, '09-mobile-region-summary');
   await mobile.close();
 } catch (err) {
   check('Smoke test completed without exceptions', false, err instanceof Error ? err.message : String(err));
