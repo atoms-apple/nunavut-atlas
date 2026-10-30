@@ -1,6 +1,7 @@
 import type { Community, RegionId } from '../../types/community';
 import { REGIONS } from '../../data/regions/regions';
 import { RegionSymbol } from '../shared/RegionSymbol';
+import { RegionFilter } from './RegionFilter';
 
 const NUMBER = new Intl.NumberFormat('en-CA');
 
@@ -20,25 +21,7 @@ export function CommunityList({ communities, regionFilter, onRegionFilterChange,
   const regions = regionFilter === 'all' ? REGIONS : REGIONS.filter((r) => r.id === regionFilter);
   return (
     <div className="community-browser">
-      <fieldset className="chip-group">
-        <legend className="visually-hidden">Filter by region</legend>
-        {(['all', ...REGIONS.map((r) => r.id)] as const).map((id) => {
-          const region = REGIONS.find((r) => r.id === id);
-          return (
-            <label key={id} className={`chip${regionFilter === id ? ' is-active' : ''}`}>
-              <input
-                type="radio"
-                name="region-filter"
-                value={id}
-                checked={regionFilter === id}
-                onChange={() => onRegionFilterChange(id)}
-              />
-              {region && <RegionSymbol region={region} size={12} />}
-              {region ? region.name : 'All regions'}
-            </label>
-          );
-        })}
-      </fieldset>
+      <RegionFilter value={regionFilter} onChange={onRegionFilterChange} />
       <p className="muted small" role="status">
         {regionFilter === 'all'
           ? `${communities.length} communities`

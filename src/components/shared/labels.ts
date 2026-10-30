@@ -42,3 +42,6 @@ export const CLASSIFICATION_LABEL: Record<DataClassification, { label: string; t
     explanation: 'Partial, secondary or awaiting review.',
   },
 };
+
+
+export { MISSING_FIELD_LABEL } from '../../lib/communities/fields';

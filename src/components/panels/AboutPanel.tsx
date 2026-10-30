@@ -99,7 +99,8 @@ export function AboutPanel({ dataErrors }: { dataErrors: RecordError[] }) {
       <h3 className="details__heading">Projection</h3>
       <p className="small">
         The map uses Web Mercator, the standard for web tiles. It strongly enlarges areas near the pole, so Ellesmere Island
-        appears far larger than it is relative to southern Nunavut.
+        appears far larger than it is relative to southern Nunavut. The scale bar is accurate only near the centre of the
+        view, because the scale of a Web Mercator map changes with latitude.
       </p>
     </div>
   );

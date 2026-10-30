@@ -6,25 +6,22 @@ import { statCanProfileUrl } from '../../lib/links';
 import { Badge } from '../shared/Badge';
 import { RegionSymbol } from '../shared/RegionSymbol';
 import { SourceList } from '../shared/SourceList';
-import { VERIFICATION_LABEL } from '../shared/labels';
+import { CommunityDistances } from './CommunityDistances';
+import { MISSING_FIELD_LABEL, VERIFICATION_LABEL } from '../shared/labels';
 
 const NUMBER = new Intl.NumberFormat('en-CA');
 
-const FIELD_LABEL: Record<string, string> = {
-  location: 'verified coordinates',
-  population: 'verified census population',
-  indigenousNames: 'Inuktut name forms',
-  description: 'geographic description',
-  links: 'official links',
-};
 
 interface Props {
   community: Community;
   onZoomTo: () => void;
   onSelectRegion: () => void;
+  /** All communities, for nearest-community distances. Omit to hide distances. */
+  communities?: readonly Community[];
+  onSelectCommunity?: (id: string) => void;
 }
 
-export function CommunityDetails({ community: c, onZoomTo, onSelectRegion }: Props) {
+export function CommunityDetails({ community: c, onZoomTo, onSelectRegion, communities, onSelectCommunity }: Props) {
   const region = getRegion(c.regionId);
   const allSourceIds = [
     ...(c.location?.sourceIds ?? []),
@@ -144,6 +141,10 @@ export function CommunityDetails({ community: c, onZoomTo, onSelectRegion }: Pro
         </button>
       )}
 
+      {communities && onSelectCommunity && (
+        <CommunityDistances key={c.id} community={c} communities={communities} onSelectCommunity={onSelectCommunity} />
+      )}
+
       <h3 className="details__heading">Official resources</h3>
       {c.links.length > 0 || c.censusSubdivisionCode ? (
         <ul className="link-list">
@@ -172,7 +173,7 @@ export function CommunityDetails({ community: c, onZoomTo, onSelectRegion }: Pro
         Record last reviewed {c.lastReviewed}.{' '}
         {c.completeness === 'complete'
           ? 'All core fields are filled.'
-          : `Not yet added: ${c.missingFields.map((f) => FIELD_LABEL[f] ?? f).join(', ')}.`}
+          : `Not yet added: ${c.missingFields.map((f) => MISSING_FIELD_LABEL[f] ?? f).join(', ')}.`}
       </p>
     </div>
   );
