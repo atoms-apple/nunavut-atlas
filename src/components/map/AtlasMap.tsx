@@ -1,5 +1,5 @@
 import { memo, useCallback, useMemo, useState } from 'react';
-import { GeoJSON, MapContainer, Marker, ZoomControl } from 'react-leaflet';
+import { GeoJSON, MapContainer, Marker, ScaleControl, ZoomControl } from 'react-leaflet';
 import L from 'leaflet';
 import type { Basemap } from '../../config/basemaps';
 import { MAP_MAX_ZOOM, MAP_MIN_ZOOM, NUNAVUT_INITIAL_BOUNDS } from '../../config/map';
@@ -109,12 +109,10 @@ const FeatureMarkers = memo(function FeatureMarkers({
             position={[lat, lon]}
             icon={featureIcon(f.properties, id === selectedId)}
             title={`${f.properties.name} (approximate label position)`}
-            keyboard
+            // Label points stay clickable but out of the tab order; every one is reachable through search.
+            keyboard={false}
             zIndexOffset={-500}
-            eventHandlers={{
-              click: () => onSelect({ kind: 'feature', id }),
-              keydown: (e) => activateOnKey(e, () => onSelect({ kind: 'feature', id })),
-            }}
+            eventHandlers={{ click: () => onSelect({ kind: 'feature', id }) }}
           />
         );
       })}
@@ -162,6 +160,7 @@ export function AtlasMap(props: AtlasMapProps) {
       keyboard
     >
       <ZoomControl position="topleft" />
+      <ScaleControl position="bottomleft" metric imperial={false} maxWidth={120} />
       <BasemapLayer
         basemap={props.basemap}
         retryNonce={props.tileRetryNonce}

@@ -16,3 +16,22 @@ export function useMediaQuery(query: string): boolean {
 export function usePrefersReducedMotion(): boolean {
   return useMediaQuery('(prefers-reduced-motion: reduce)');
 }
+
+function subscribeToViewport(onChange: () => void): () => void {
+  if (typeof window === 'undefined') return () => {};
+  window.addEventListener('resize', onChange);
+  window.addEventListener('orientationchange', onChange);
+  return () => {
+    window.removeEventListener('resize', onChange);
+    window.removeEventListener('orientationchange', onChange);
+  };
+}
+
+/** Current window.innerHeight, updated on resize and orientation change. */
+export function useViewportHeight(): number {
+  return useSyncExternalStore(
+    subscribeToViewport,
+    () => (typeof window !== 'undefined' ? window.innerHeight : 0),
+    () => 0,
+  );
+}

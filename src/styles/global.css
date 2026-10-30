@@ -764,3 +764,26 @@ h3 {
     scroll-behavior: auto !important;
   }
 }
+
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 3px solid Highlight;
+  }
+  .badge {
+    border: 1px solid CanvasText;
+  }
+  .chip.is-active,
+  .community-list__item.is-selected,
+  .search__option.is-active,
+  .nav-button.is-active,
+  .segmented__option.is-active {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+  .switch {
+    border: 1px solid CanvasText;
+  }
+  .switch:checked {
+    background: Highlight;
+  }
+}

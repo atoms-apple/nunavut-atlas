@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import { RotateCcw } from 'lucide-react';
 import { AtlasMap } from '../components/map/AtlasMap';
 import type { BasemapStatus } from '../components/map/BasemapLayer';
@@ -21,9 +21,10 @@ import { DEFAULT_LAYER_VISIBILITY, LAYERS, getLayer } from '../data/layers/regis
 import { REGIONS, getRegion } from '../data/regions/regions';
 import { useGeoJsonResource } from '../hooks/useGeoJsonResource';
 import { useHashSelection, type Selection } from '../hooks/useHashSelection';
-import { useMediaQuery, usePrefersReducedMotion } from '../hooks/useMediaQuery';
+import { useMediaQuery, usePrefersReducedMotion, useViewportHeight } from '../hooks/useMediaQuery';
 import { useSessionPreference } from '../hooks/useSessionPreference';
 import { boundsOfPoints } from '../lib/geo/coordinates';
+import { activeElement, restoreFocus, type FocusMemory } from '../lib/focus';
 import {
   buildCommunityEntries,
   buildFeatureEntries,
@@ -62,6 +63,10 @@ function initialFocusFor(selection: Selection | null): FocusRequest | null {
 export function App() {
   const isMobile = useMediaQuery('(max-width: 760px)');
   const reducedMotion = usePrefersReducedMotion();
+  const viewportHeight = useViewportHeight();
+  // Elements that opened the left panel and the details panel, for returning focus on close.
+  const leftOpener = useRef<FocusMemory>({ element: null });
+  const detailsOpener = useRef<FocusMemory>({ element: null });
 
   const [selection, setSelection] = useHashSelection();
   const [activePanel, setActivePanel] = useState<PanelId | null>(null);
@@ -111,7 +116,7 @@ export function App() {
   );
   const searchCoverage =
     `Search covers Nunavut’s ${COMMUNITIES.length} municipalities (including recorded former and Inuktut names), ` +
-    `its 3 regions` +
+    `its ${REGIONS.length} regions` +
     (physicalFeatures.length ? ` and ${physicalFeatures.length} named islands, peninsulas and waters.` : '.') +
     ' Other place names are not yet included.';
 
@@ -132,9 +137,9 @@ export function App() {
 
   const occluded = useMemo(() => {
     if (!detailsOpen) return { right: 0, bottom: 0 };
-    if (isMobile) return { right: 0, bottom: Math.round(window.innerHeight * MOBILE_SHEET_RATIO) };
+    if (isMobile) return { right: 0, bottom: Math.round(viewportHeight * MOBILE_SHEET_RATIO) };
     return { right: DESKTOP_PANEL_WIDTH, bottom: 0 };
-  }, [detailsOpen, isMobile]);
+  }, [detailsOpen, isMobile, viewportHeight]);
 
   const requestFocus = useCallback((target: FocusTarget) => {
     setFocus((prev) => ({ target, nonce: (prev?.nonce ?? 0) + 1 }));
@@ -160,6 +165,11 @@ export function App() {
 
   const select = useCallback(
     (sel: Selection, options: { focus?: boolean } = {}) => {
+      // Remember what opened the details panel. A control inside the details
+      // panel (e.g. the region link) is replaced by the new panel, so keep the
+      // earlier opener in that case.
+      const opener = activeElement();
+      if (opener && !opener.closest('.panel--right')) detailsOpener.current.element = opener;
       setSelection(sel);
       if (options.focus ?? true) focusOn(sel);
     },
@@ -187,9 +197,18 @@ export function App() {
     select({ kind: entry.kind, id: entry.id });
   };
 
-  const closeDetails = () => setSelection(null);
+  const closeDetails = () => {
+    setSelection(null);
+    restoreFocus(detailsOpener.current);
+  };
+
+  const closeLeftPanel = () => {
+    setActivePanel(null);
+    restoreFocus(leftOpener.current);
+  };
 
   const togglePanel = (panel: PanelId) => {
+    leftOpener.current.element = activeElement();
     setActivePanel((p) => (p === panel ? null : panel));
     if (isMobile) setSelection(null);
   };
@@ -213,7 +232,10 @@ export function App() {
         <CommunityDetails
           community={selectedCommunity}
           onZoomTo={() => focusOn({ kind: 'community', id: selectedCommunity.id })}
-          onSelectRegion={() => select({ kind: 'region', id: region.id })}
+          onSelectRegion={() => {
+            setRegionFilter(region.id);
+            select({ kind: 'region', id: region.id });
+          }}
         />
       </Panel>
     );
@@ -301,7 +323,13 @@ export function App() {
             initiallyOpen={!isMobile}
           />
           <p className="visually-hidden" role="status" aria-live="polite">
-            {selectedCommunity ? `${selectedCommunity.name} selected.` : ''}
+            {selectedCommunity
+              ? `${selectedCommunity.name} selected.`
+              : selectedRegion
+                ? `${selectedRegion.name} Region selected.`
+                : selectedFeature
+                  ? `${selectedFeature.properties.name} selected.`
+                  : ''}
           </p>
         </section>
 
@@ -310,8 +338,8 @@ export function App() {
             <Panel
               side="left"
               title="Communities"
-              subtitle="All 25 municipalities, grouped by region"
-              onClose={() => setActivePanel(null)}
+              subtitle={`All ${COMMUNITIES.length} municipalities, grouped by region`}
+              onClose={closeLeftPanel}
             >
               <CommunityList
                 communities={COMMUNITIES}
@@ -326,7 +354,7 @@ export function App() {
             </Panel>
           )}
           {leftPanel === 'layers' && (
-            <Panel side="left" title="Layers" subtitle="Base map and data layers" onClose={() => setActivePanel(null)}>
+            <Panel side="left" title="Layers" subtitle="Base map and data layers" onClose={closeLeftPanel}>
               <LayerPanel
                 layers={LAYERS}
                 visibility={visibility}
@@ -340,7 +368,7 @@ export function App() {
             </Panel>
           )}
           {leftPanel === 'about' && (
-            <Panel side="left" title="About & data sources" onClose={() => setActivePanel(null)}>
+            <Panel side="left" title="About & data sources" onClose={closeLeftPanel}>
               <AboutPanel dataErrors={COMMUNITY_DATA_ERRORS} />
             </Panel>
           )}

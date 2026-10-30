@@ -198,7 +198,8 @@
 .legend {
   position: absolute;
   left: 10px;
-  bottom: 24px;
+  /* Sits above Leaflet's scale bar (bottom-left control). */
+  bottom: 44px;
   z-index: 900;
   min-width: 180px;
   max-width: 260px;
@@ -265,7 +266,7 @@
 
 @media (max-width: 760px) {
   .legend {
-    bottom: 24px;
+    bottom: 44px;
     max-width: 200px;
   }
   .map-banner {
@@ -288,5 +289,54 @@
   .map-banner .button--small {
     min-height: 30px;
     transform: none;
+  }
+}
+
+.leaflet-control-scale-line {
+  border-color: var(--color-graphite);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--color-graphite);
+  font-size: 11px;
+}
+
+/* Windows High Contrast / forced colours: keep markers, symbols, badges,
+   focus outlines and selected states visible with system colours. */
+@media (forced-colors: active) {
+  .atlas-marker__symbol {
+    forced-color-adjust: none;
+    background: CanvasText;
+    border-color: Canvas;
+    box-shadow: none;
+    outline: 1px solid Canvas;
+  }
+  .atlas-marker.is-selected .atlas-marker__symbol,
+  .atlas-marker:focus-visible .atlas-marker__symbol {
+    background: Highlight;
+    outline: 3px solid CanvasText;
+    outline-offset: 2px;
+  }
+  .atlas-marker__label,
+  .atlas-feature-label {
+    forced-color-adjust: none;
+    color: CanvasText;
+    background: Canvas;
+    text-shadow: none;
+  }
+  .atlas-marker--feature.is-selected .atlas-feature-label {
+    outline: 2px solid Highlight;
+  }
+  .region-symbol g {
+    fill: CanvasText;
+    stroke: Canvas;
+  }
+  .legend__swatch {
+    forced-color-adjust: none;
+    border: 1px solid CanvasText;
+  }
+  .leaflet-control-scale-line {
+    forced-color-adjust: none;
+    background: Canvas;
+    color: CanvasText;
+    border-color: CanvasText;
   }
 }
