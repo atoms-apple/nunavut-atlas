@@ -10,7 +10,7 @@ import { Panel } from '../components/shared/Panel';
 import { LayerPanel, type LayerLoadState } from '../components/layers/LayerPanel';
 import { Legend } from '../components/layers/Legend';
 import { CommunityDetails } from '../components/community/CommunityDetails';
-import { CommunityList } from '../components/community/CommunityList';
+import { CommunityBrowser, type CommunityView } from '../components/community/CommunityBrowser';
 import { FeatureDetails } from '../components/community/FeatureDetails';
 import { RegionDetails } from '../components/community/RegionDetails';
 import { AboutPanel } from '../components/panels/AboutPanel';
@@ -71,6 +71,8 @@ export function App() {
   const [selection, setSelection] = useHashSelection();
   const [activePanel, setActivePanel] = useState<PanelId | null>(null);
   const [regionFilter, setRegionFilter] = useState<RegionId | 'all'>('all');
+  // List is the default; the choice lasts for this page load only (nothing is stored).
+  const [communityView, setCommunityView] = useState<CommunityView>('list');
   const [focus, setFocus] = useState<FocusRequest | null>(() => initialFocusFor(selection));
   const [resetNonce, setResetNonce] = useState(0);
   const [basemapStatus, setBasemapStatus] = useState<BasemapStatus>('loading');
@@ -340,8 +342,11 @@ export function App() {
               title="Communities"
               subtitle={`All ${COMMUNITIES.length} municipalities, grouped by region`}
               onClose={closeLeftPanel}
+              className={communityView === 'table' ? 'panel--wide' : ''}
             >
-              <CommunityList
+              <CommunityBrowser
+                view={communityView}
+                onViewChange={setCommunityView}
                 communities={COMMUNITIES}
                 regionFilter={regionFilter}
                 onRegionFilterChange={setRegionFilter}

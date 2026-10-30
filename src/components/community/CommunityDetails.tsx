@@ -6,17 +6,10 @@ import { statCanProfileUrl } from '../../lib/links';
 import { Badge } from '../shared/Badge';
 import { RegionSymbol } from '../shared/RegionSymbol';
 import { SourceList } from '../shared/SourceList';
-import { VERIFICATION_LABEL } from '../shared/labels';
+import { MISSING_FIELD_LABEL, VERIFICATION_LABEL } from '../shared/labels';
 
 const NUMBER = new Intl.NumberFormat('en-CA');
 
-const FIELD_LABEL: Record<string, string> = {
-  location: 'verified coordinates',
-  population: 'verified census population',
-  indigenousNames: 'Inuktut name forms',
-  description: 'geographic description',
-  links: 'official links',
-};
 
 interface Props {
   community: Community;
@@ -172,7 +165,7 @@ export function CommunityDetails({ community: c, onZoomTo, onSelectRegion }: Pro
         Record last reviewed {c.lastReviewed}.{' '}
         {c.completeness === 'complete'
           ? 'All core fields are filled.'
-          : `Not yet added: ${c.missingFields.map((f) => FIELD_LABEL[f] ?? f).join(', ')}.`}
+          : `Not yet added: ${c.missingFields.map((f) => MISSING_FIELD_LABEL[f] ?? f).join(', ')}.`}
       </p>
     </div>
   );
