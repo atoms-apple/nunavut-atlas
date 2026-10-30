@@ -19,7 +19,8 @@
     "validate:data": "vitest run tests/data-integrity.test.ts tests/community-dataset.test.ts",
     "build:geodata": "node scripts/build-geodata.mjs",
     "e2e": "node scripts/e2e-smoke.mjs",
-    "check": "npm run lint && npm run typecheck && npm run validate:data && npm run test"
+    "check": "npm run lint && npm run typecheck && npm run validate:data && npm run test",
+    "build:checklist": "node scripts/build-verification-checklist.mjs"
   },
   "dependencies": {
     "leaflet": "1.9.4",
