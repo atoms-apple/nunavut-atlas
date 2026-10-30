@@ -269,10 +269,15 @@
     bottom: 44px;
     max-width: 200px;
   }
+  /* Keep the attribution to the right of the scale bar on narrow screens. */
+  .leaflet-container .leaflet-control-attribution {
+    max-width: calc(100vw - 110px);
+  }
   .map-banner {
     left: 56px;
     right: var(--space-2);
     width: auto;
+    transform: none;
     padding: var(--space-2) var(--space-3);
     font-size: var(--text-xs);
     gap: var(--space-1) var(--space-2);
@@ -288,7 +293,6 @@
   }
   .map-banner .button--small {
     min-height: 30px;
-    transform: none;
   }
 }
 
